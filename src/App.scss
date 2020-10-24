@@ -1,0 +1,47 @@
+@keyframes spin {
+  0% {
+    top: 1rem;
+    left: 1rem;
+  }
+  25% {
+    top: 1rem;
+    left: calc(100% - 1.5rem);
+  }
+  50% {
+    top: calc(100% - 1.5rem);
+    left: calc(100% - 1.5rem);
+  }
+  75% {
+    top: calc(100% - 1.5rem);
+    left: 1rem;
+  }
+  100% {
+    top: 1rem;
+    left: 1rem;
+  }
+}
+
+.App {
+  height: 100%;
+  position: relative;
+
+  &.loading:before {
+    content: "";
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    animation: spin 2s linear infinite;
+  }
+
+  &.loading:after {
+    content: "";
+    position: absolute;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    animation: spin 2s linear 1s infinite;
+  }
+}
