@@ -24,9 +24,7 @@
 .App {
   height: 100%;
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
 
   &.loading:before {
     content: "";
@@ -46,5 +44,9 @@
     border-radius: 0.5rem;
     background-color: white;
     animation: spin 2s linear 1s infinite;
+  }
+
+  p {
+    margin: auto;
   }
 }
