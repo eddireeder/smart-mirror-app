@@ -5,6 +5,13 @@ import Greeting from "./components/Greeting/Greeting";
 function App() {
   useEffect(() => {
     requestWakeLock();
+    const interval = setInterval(() => {
+      refreshPage();
+    }, 1000 * 60 * 5);
+
+    return () => {
+      clearInterval(interval);
+    }
   }, []);
 
   const requestWakeLock = async () => {
@@ -13,6 +20,10 @@ function App() {
     } catch (err) {
       console.error(`${err.name}, ${err.message}`);
     }
+  }
+
+  const refreshPage = () => {
+    window.location.reload(); 
   }
 
   return (
