@@ -17,7 +17,11 @@ const Clock: React.FC = () => {
 
   const updateFormattedTime = () => {
     const now = new Date();
-    setFormattedTime(`${now.getHours()}:${now.getMinutes()}`);
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const formattedHours = hours < 10 ? `0${hours}` : `${hours}`;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : `${minutes}`;
+    setFormattedTime(`${formattedHours}:${formattedMinutes}`);
   };
 
   return <div className="Clock">{formattedTime}</div>;
