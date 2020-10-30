@@ -44,4 +44,9 @@
     background-color: white;
     animation: spin 4s linear 2s infinite;
   }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+  }
 }

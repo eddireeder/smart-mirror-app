@@ -12,7 +12,7 @@ const Greeting: React.FC<GreetingProps> = props => {
     updateGreeting();
     const interval = setInterval(() => {
       updateGreeting();
-    }, 1000 * 60);
+    }, 1000 * 5);
 
     return () => {
       clearInterval(interval);

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.scss";
+import Clock from "./components/Clock/Clock";
 import Greeting from "./components/Greeting/Greeting";
 
 function App() {
@@ -28,7 +29,10 @@ function App() {
 
   return (
     <div className="App">
-      <Greeting name="Eddie"/>
+      <div className="top-bar">
+        <Greeting name="Eddie"/>
+        <Clock />
+      </div>
     </div>
   );
 }
