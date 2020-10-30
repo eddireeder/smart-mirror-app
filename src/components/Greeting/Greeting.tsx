@@ -30,7 +30,7 @@ const Greeting: React.FC<GreetingProps> = props => {
     }
   };
 
-  return <div className="Greeting">{greeting} {props.name}</div>;
+  return <div className="Greeting">{greeting}, {props.name}</div>;
 };
 
 export default Greeting;
