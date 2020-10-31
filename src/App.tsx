@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./App.scss";
 import Clock from "./components/Clock/Clock";
 import Greeting from "./components/Greeting/Greeting";
+import Weather from "./components/Weather/Weather";
 
 function App() {
   useEffect(() => {
@@ -33,6 +34,7 @@ function App() {
         <Greeting name="Eddie"/>
         <Clock />
       </div>
+      <Weather />
     </div>
   );
 }
