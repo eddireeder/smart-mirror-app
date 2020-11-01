@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import "./Weather.scss";
 import Axios from "axios";
 import config from "../../config";
+import DayBlock from "./DayBlock/DayBlock";
+import { Day, WeatherState } from "./enums";
 
 const Weather: React.FC = () => {
   useEffect(() => {
@@ -13,7 +15,10 @@ const Weather: React.FC = () => {
     console.log(response);
   }
 
-  return <div className="Weather"></div>;
+  return <div className="Weather">
+    <DayBlock day={Day.Monday} weather={WeatherState.Clear}/>
+    <DayBlock day={Day.Tuesday} weather={WeatherState.Rain}/>
+  </div>;
 };
 
 export default Weather;
