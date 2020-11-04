@@ -1,5 +1,17 @@
 .DayBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .day {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
   svg {
+    height: 2.5rem;
+    width: 2.5rem;
+
     > * {
       fill: white;
     }
