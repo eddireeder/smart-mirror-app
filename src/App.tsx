@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./App.scss";
 import Clock from "./components/Clock/Clock";
 import Greeting from "./components/Greeting/Greeting";
+import SpinningCube from "./components/SpinningCube/SpinningCube";
 import Weather from "./components/Weather/Weather";
 
 function App() {
@@ -13,28 +14,29 @@ function App() {
 
     return () => {
       clearInterval(interval);
-    }
+    };
   }, []);
 
   const requestWakeLock = async () => {
     try {
-      await (navigator as any).wakeLock.request('screen');
+      await (navigator as any).wakeLock.request("screen");
     } catch (err) {
       console.error(`${err.name}, ${err.message}`);
     }
-  }
+  };
 
   const refreshPage = () => {
-    window.location.reload(); 
-  }
+    window.location.reload();
+  };
 
   return (
     <div className="App">
       <div className="top-bar">
-        <Greeting name="Eddie"/>
+        <Greeting name="Eddie" />
         <Clock />
       </div>
       <Weather />
+      <SpinningCube />
     </div>
   );
 }

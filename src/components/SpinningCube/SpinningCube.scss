@@ -1,0 +1,54 @@
+$side-length: 10rem;
+
+.SpinningCube {
+  height: $side-length;
+  width: $side-length;
+
+  .cube {
+    position: relative;
+    animation: spin 25s infinite alternate ease-in-out;
+    transform-style: preserve-3d;
+    transform-origin: #{$side-length / 2} #{$side-length / 2} 0;
+
+    > div {
+      position: absolute;
+      width: $side-length;
+      height: $side-length;
+      border: 1px solid white;
+      background: rgba(255, 255, 255, 0);
+    }
+
+    .face1 {
+      transform: translateZ(#{$side-length / 2});
+    }
+
+    .face2 {
+      transform: rotateY(90deg) translateZ(#{$side-length / 2});
+    }
+
+    .face3 {
+      transform: rotateY(90deg) rotateX(90deg) translateZ(#{$side-length / 2});
+    }
+
+    .face4 {
+      transform: rotateY(180deg) rotateZ(90deg) translateZ(#{$side-length / 2});
+    }
+
+    .face5 {
+      transform: rotateY(-90deg) rotateZ(90deg) translateZ(#{$side-length / 2});
+    }
+
+    .face6 {
+      transform: rotateX(-90deg) translateZ(#{$side-length / 2});
+    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(60deg) rotateY(30deg) rotateZ(30deg);
+  }
+  to {
+    transform: rotateX(560deg) rotateY(530deg) rotateZ(530deg);
+  }
+}
