@@ -37,8 +37,41 @@ function App() {
         <Clock />
       </div>
       <Weather />
-      <ShareInfo symbol="INTU" name="Intuit" startPrice={417.56} units={132} />
-      <ShareInfo symbol="TSLA" name="Tesla" startPrice={101.54} units={20} />
+      <ShareInfo
+        symbol="INTU"
+        name="Intuit"
+        startPrice={417.56}
+        units={132}
+        isUS={true}
+      />
+      <ShareInfo
+        symbol="TSLA"
+        name="Tesla"
+        startPrice={101.54}
+        units={20}
+        isUS={true}
+      />
+      <ShareInfo
+        symbol="COIN"
+        name="Coinbase"
+        startPrice={276.38}
+        units={45}
+        isUS={true}
+      />
+      <ShareInfo
+        symbol="AAPL"
+        name="Apple"
+        startPrice={118.537}
+        units={60}
+        isUS={true}
+      />
+      <ShareInfo
+        symbol="GOOG"
+        name="Google"
+        startPrice={1151.705}
+        units={2}
+        isUS={true}
+      />
       <SpinningCube />
     </div>
   );
