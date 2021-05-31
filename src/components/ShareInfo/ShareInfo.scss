@@ -1,0 +1,14 @@
+.ShareInfo {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+
+  .green {
+    color: #b9ffb9;
+  }
+
+  .red {
+    color: #ffbdbd;
+  }
+}

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./App.scss";
 import Clock from "./components/Clock/Clock";
 import Greeting from "./components/Greeting/Greeting";
+import ShareInfo from "./components/ShareInfo/ShareInfo";
 import SpinningCube from "./components/SpinningCube/SpinningCube";
 import Weather from "./components/Weather/Weather";
 
@@ -36,6 +37,7 @@ function App() {
         <Clock />
       </div>
       <Weather />
+      <ShareInfo symbol="INTU" name="Intuit" startPrice={415} units={132} />
       <SpinningCube />
     </div>
   );
