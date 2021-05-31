@@ -14,15 +14,14 @@ const ShareInfo: React.FC<ShareInfoProps> = (props) => {
   const [currentPrice, setCurrentPrice] = useState<number>(0);
 
   useEffect(() => {
+    const updateCurrentPrice = async () => {
+      const response: AxiosResponse<any> = await Axios.get(
+        `https://finnhub.io/api/v1/quote?symbol=${props.symbol}&token=${config.finnHub.apiKey}`
+      );
+      setCurrentPrice(response.data.c);
+    };
     updateCurrentPrice();
-  }, []);
-
-  const updateCurrentPrice = async () => {
-    const response: AxiosResponse<any> = await Axios.get(
-      `https://finnhub.io/api/v1/quote?symbol=${props.symbol}&token=${config.finnHub.apiKey}`
-    );
-    setCurrentPrice(response.data.c);
-  };
+  }, [props.symbol]);
 
   const percentageDiff = () => {
     return (currentPrice / props.startPrice) * 100 - 100;
