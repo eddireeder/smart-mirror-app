@@ -1,7 +1,8 @@
 .ShareInfo {
   margin-top: 2rem;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: left;
   font-weight: bold;
 
   .green {

@@ -37,7 +37,8 @@ function App() {
         <Clock />
       </div>
       <Weather />
-      <ShareInfo symbol="INTU" name="Intuit" startPrice={415} units={132} />
+      <ShareInfo symbol="INTU" name="Intuit" startPrice={417.56} units={132} />
+      <ShareInfo symbol="TSLA" name="Tesla" startPrice={101.54} units={20} />
       <SpinningCube />
     </div>
   );
