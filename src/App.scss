@@ -32,6 +32,14 @@
 
   .Weather {
     margin-top: 2rem;
+
+    ~ .ShareInfo {
+      margin-top: 3rem;
+    }
+  }
+
+  .ShareInfo {
+    margin-top: 2rem;
   }
 
   .SpinningCube {

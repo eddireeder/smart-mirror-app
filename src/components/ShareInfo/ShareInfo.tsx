@@ -26,7 +26,7 @@ const ShareInfo: React.FC<ShareInfoProps> = (props) => {
         );
       });
     });
-  }, [props.symbol]);
+  }, [props.symbol, props.units]);
 
   const percentageDiff = () => {
     return (currentPrice / props.startPrice) * 100 - 100;
