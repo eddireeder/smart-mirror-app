@@ -11,22 +11,32 @@ type ShareInfoProps = {
 
 const ShareInfo: React.FC<ShareInfoProps> = (props) => {
   const [currentPrice, setCurrentPrice] = useState<number>(0);
-  const [currentValue, setCurrentValue] = useState<number>(0);
+  const [gbpRate, setGbpRate] = useState<number>(0);
 
   useEffect(() => {
     Axios.get(
       `https://finnhub.io/api/v1/quote?symbol=${props.symbol}&token=${config.finnHub.apiKey}`
-    ).then((quoteResponse) => {
-      setCurrentPrice(quoteResponse.data.c);
-      Axios.get(
-        `https://finnhub.io/api/v1/forex/rates?base=USD&token=${config.finnHub.apiKey}`
-      ).then((forexResponse) => {
-        setCurrentValue(
-          quoteResponse.data.c * forexResponse.data.quote.GBP * props.units
-        );
-      });
+    ).then((response) => {
+      setCurrentPrice(response.data.c);
     });
-  }, [props.symbol, props.units]);
+    Axios.get(
+      `https://finnhub.io/api/v1/forex/rates?base=USD&token=${config.finnHub.apiKey}`
+    ).then((response) => {
+      setGbpRate(response.data.quote.GBP);
+    });
+  }, [props.symbol]);
+
+  const currentValue = () => {
+    return currentPrice * gbpRate * props.units;
+  };
+
+  const startValue = () => {
+    return props.startPrice * gbpRate * props.units;
+  };
+
+  const profit = () => {
+    return currentValue() - startValue();
+  };
 
   const percentageDiff = () => {
     return (currentPrice / props.startPrice) * 100 - 100;
@@ -34,13 +44,6 @@ const ShareInfo: React.FC<ShareInfoProps> = (props) => {
 
   const toTwoDp = (num: number) => {
     return Math.round(num * 100) / 100;
-  };
-
-  const plusIfPositive = (num: number) => {
-    if (num >= 0) {
-      return "+";
-    }
-    return "";
   };
 
   const greenOrRed = (num: number) => {
@@ -54,10 +57,12 @@ const ShareInfo: React.FC<ShareInfoProps> = (props) => {
   return (
     <div className="ShareInfo">
       <div className="name">{props.symbol}</div>
-      <div className="current-price">${Math.round(currentPrice)}</div>
-      <div className="current-value">£{Math.round(currentValue)}</div>
+      <div className="current-value">£{Math.round(currentValue())}</div>
+      <div className={"profit " + greenOrRed(profit())}>
+        £{Math.abs(Math.round(profit()))}
+      </div>
       <div className={"percentage-diff " + greenOrRed(percentageDiff())}>
-        {plusIfPositive(percentageDiff()) + toTwoDp(percentageDiff())}%
+        {Math.abs(toTwoDp(percentageDiff()))}%
       </div>
     </div>
   );
