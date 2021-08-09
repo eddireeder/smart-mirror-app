@@ -37,7 +37,7 @@ function App() {
         <Clock />
       </div>
       <Weather />
-      <ShareInfo symbol="INTU" startPrice={417.56} units={132} />
+      <ShareInfo symbol="INTU" startPrice={439.15} units={165} />
       <ShareInfo symbol="TSLA" startPrice={101.54} units={20} />
       <ShareInfo symbol="COIN" startPrice={276.38} units={45} />
       <ShareInfo symbol="AAPL" startPrice={118.537} units={60} />
